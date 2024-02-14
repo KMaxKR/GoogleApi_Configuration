@@ -3,9 +3,11 @@ package ks.ouath.GoogleApi.security;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
+@EnableWebSecurity
 public class WebSecurity {
 
     @Bean
@@ -13,10 +15,11 @@ public class WebSecurity {
         http
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/").permitAll()
-                        .requestMatchers("/close").authenticated()
+                        .anyRequest().authenticated()
                 )
-                .oauth2Login(login -> login
-                        .loginPage("/login")
+                .oauth2Login(oauth2 -> {
+
+                    }
                 );
         return http.build();
     }
