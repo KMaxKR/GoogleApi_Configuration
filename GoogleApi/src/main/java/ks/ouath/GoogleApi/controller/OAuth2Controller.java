@@ -10,6 +10,7 @@ public class OAuth2Controller {
 
     @GetMapping("/authentication")
     public String oauthPage() {
-        return "log";
+        return "login";
+        // TODO: 09.03.2024  finish endpoint auth and receiving data 
     }
 }
